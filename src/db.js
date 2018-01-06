@@ -13,6 +13,7 @@ module.exports = {
         console.error("Cannot connect to mongodb");
         return;
       }
+      // Set singleton
       connection = db.db(database);
       console.log("Connected to mongodb");
     });
