@@ -11,7 +11,7 @@ module.exports = {
     MongoClient.connect(dns, function(err, db) {
       if (err) {
         console.error("Cannot connect to mongodb");
-        process.exit(1);
+        return;
       }
       connection = db.db(database);
       console.log("Connected to mongodb");

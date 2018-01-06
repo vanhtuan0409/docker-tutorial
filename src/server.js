@@ -1,46 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
 const db = require("./db");
+const controller = require("./controller");
 
 db.init();
 const app = express();
 app.use(morgan("dev"));
 
-app.get("/", function(req, res) {
-  res.send("Hello world!!!");
-});
-
-app.get("/list", function(req, res) {
-  const conn = db.getConnection();
-  conn
-    .collection("list")
-    .find({})
-    .toArray(function(err, result) {
-      if (err) {
-        res.status(500).json({
-          error: err.message
-        });
-        return;
-      }
-      res.json(result);
-    });
-});
-
-app.get("/list/add/:name", function(req, res) {
-  const conn = db.getConnection();
-  const name = req.params["name"];
-  conn.collection("list").insertOne({ name }, function(err, result) {
-    if (err) {
-      res.status(500).json({
-        error: err.message
-      });
-      return;
-    }
-    res.json({
-      success: true
-    });
-  });
-});
+app.get("/", controller.index);
+app.get("/list", controller.list);
+app.get("/list/add/:name", controller.addItem);
 
 const port = process.env.HTTP_PORT || 8000;
 app.listen(port, function() {
