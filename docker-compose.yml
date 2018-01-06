@@ -5,5 +5,16 @@ services:
     container_name: "mongo"
     volumes:
       - ./data:/data/db
+  
+  api:
+    image: dockertutorial
+    container_name: "dockertutorial"
+    build: .
+    environment:
+      - MONGODB_HOST=db
+      - MONGODB_PORT=27017
+      - MONGODB_DB=dockertutorial
     ports:
-      - 27017:27017
+      - 8000:8000
+    links:
+      - db
