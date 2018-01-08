@@ -5,7 +5,7 @@
 * [Docker CE](https://docs.docker.com/engine/installation/)
 * [Docker-compose](https://docs.docker.com/compose/install/)
 
-`Note:` Docker compose might already be included within Docker CE. So after install Docker CE, you should run `docker-compose version` to check if it was installed or not.
+**Note**: Docker compose might already be included within Docker CE. So after install Docker CE, you should run `docker-compose version` to check if it was installed or not.
 
 To check if installation was success, run these command
 
