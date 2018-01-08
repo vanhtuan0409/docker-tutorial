@@ -14,6 +14,10 @@ docker version
 docker-compose version
 ```
 
+### Slide
+
+https://www.dropbox.com/s/fh3feiht35l5xx6/docker.pptx?dl=0
+
 ### Description
 
 This is a simple api with express js and mongo db
