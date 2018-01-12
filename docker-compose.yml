@@ -7,7 +7,7 @@ services:
       - ./data:/data/db
   
   api:
-    image: dockertutorial
+    image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
     build: .
     environment:
