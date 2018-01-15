@@ -3,13 +3,21 @@ services:
   db:
     image: mongo
     container_name: "mongo"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
     volumes:
-      - ./data:/data/db
+      - mongo_data:/data/db
   
   api:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
-    build: .
+    deploy:
+      replicas: 3
+      placement:
+        constraints:
+          - node.role == worker
     environment:
       - MONGODB_HOST=db
       - MONGODB_PORT=27017
@@ -18,3 +26,18 @@ services:
       - 8000:8000
     depends_on:
       - db
+  
+  visualizer:
+    image: dockersamples/visualizer:stable
+    container_name: "visualizer"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+    - "8080:8080"
+
+volumes:
+  mongo_data:
