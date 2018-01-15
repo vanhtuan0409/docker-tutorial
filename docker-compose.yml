@@ -35,9 +35,9 @@ services:
         constraints:
           - node.role == manager
     volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
-    - "8080:8080"
+      - "8080:8080"
 
 volumes:
   mongo_data:
