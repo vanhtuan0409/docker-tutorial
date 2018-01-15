@@ -14,7 +14,7 @@ services:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
     deploy:
-      replicas: 3
+      replicas: 5
       placement:
         constraints:
           - node.role == worker
