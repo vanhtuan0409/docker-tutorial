@@ -16,5 +16,5 @@ services:
       - MONGODB_DB=dockertutorial
     ports:
       - 8000:8000
-    links:
+    depends_on:
       - db
