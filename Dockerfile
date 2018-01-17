@@ -1,4 +1,4 @@
-FROM node
+FROM node:alpine
 
 # Create app directory
 WORKDIR /var/dockertutorial
