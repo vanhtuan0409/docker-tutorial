@@ -10,6 +10,8 @@ services:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
     build: .
+    depends_on:
+      - db
     environment:
       - MONGODB_HOST=db
       - MONGODB_PORT=27017
