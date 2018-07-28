@@ -19,5 +19,3 @@ services:
     ports:
       - 8000:8000
     command: sh -c "sleep 2; yarn start"
-    depends_on:
-      - db
