@@ -13,6 +13,9 @@ services:
   api:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
+    build: .
+    depends_on:
+      - db
     deploy:
       replicas: 5
       placement:
