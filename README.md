@@ -140,3 +140,7 @@ docker run -d --name mongo -p 27017:27017 -v ./data/mongo:/data/db mongo
 #### Containerize your application
 
 - Creating `Dockerfile` and `.dockerignore`
+
+#### Summary
+
+![](resources/summary.png)
