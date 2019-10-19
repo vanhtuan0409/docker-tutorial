@@ -144,6 +144,9 @@ docker run -d --name mongo -p 27017:27017 -v ./data/mongo:/data/db mongo
 
 - Creating `Dockerfile` and `.dockerignore`
 - Running `docker build -t {image_name}:{image tag} .`
+- Docker image is stored as multiple layer
+  - Docker will reuse old layer if command or content does not change
+  - Reuse layer for faster docker build process
 
 #### Summary
 
