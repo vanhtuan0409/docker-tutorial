@@ -132,6 +132,9 @@ docker-compose up -d
 
 ![](resources/env_communication.png)
 
+- Should limit 1 service/app per container, avoid adding multiple services into 1
+- Docker have its own mechanism for process monitoring and restart, so better avoid things like `supervisord`, `pm2`, ...
+
 ##### Practice
 ```sh
 docker run -d --name mongo -p 27017:27017 -v ./data/mongo:/data/db mongo

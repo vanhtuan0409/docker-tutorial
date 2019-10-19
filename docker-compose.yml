@@ -6,6 +6,7 @@ services:
   db:
     image: mongo                        #Docker image name
     container_name: "mongo"             #Docker container name
+    restart: always
     ports:                              #Port mapping
       - 27017:27017
     volumes:                            #Volume mount
@@ -14,6 +15,7 @@ services:
   api:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
+    restart: always
     build: .
     depends_on:                         # Running service db first
       - db
