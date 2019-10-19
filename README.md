@@ -105,7 +105,14 @@ services:
     container_name: "mongo"
 ```
 
-- Running: `docker-compose up -d`
+- Running:
+```sh
+# Running a single service
+docker-compose up -d mongo
+
+# Running all services
+docker-compose up -d
+```
 
 #### Fundamental of Docker environment
 
@@ -129,3 +136,7 @@ services:
 ```sh
 docker run -d --name mongo -p 27017:27017 -v ./data/mongo:/data/db mongo
 ```
+
+#### Containerize your application
+
+- Creating `Dockerfile` and `.dockerignore`

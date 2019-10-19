@@ -1,22 +1,24 @@
+# This is config version of docker-compose
 version: "3.7"
 
+# List of available services
 services:
   db:
-    image: mongo
-    container_name: "mongo"
-    ports:
+    image: mongo                        #Docker image name
+    container_name: "mongo"             #Docker container name
+    ports:                              #Port mapping
       - 27017:27017
-    volumes:
+    volumes:                            #Volume mount
       - "./data/mongo:/data/db"
 
   api:
     image: vanhtuan/dockertutorial
     container_name: "dockertutorial"
     build: .
-    depends_on:
+    depends_on:                         # Running service db first
       - db
-    environment:
-      - MONGODB_HOST=db
+    environment:                        # Inject environment variables
+      - MONGODB_HOST=db                 # Address using service name
       - MONGODB_PORT=27017
       - MONGODB_DB=dockertutorial
     ports:

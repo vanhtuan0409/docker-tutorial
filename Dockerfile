@@ -1,6 +1,6 @@
 FROM node:alpine
 
-# Create app directory
+# Create app directory (within Docker environment)
 WORKDIR /var/dockertutorial
 
 # Copy package.json + package-lock.json + yarn.lock from host machine
@@ -15,6 +15,8 @@ RUN yarn install
 # Bundle app source
 COPY . .
 
-
+# For documentation
 EXPOSE 8000
+
+# Default command when running container
 CMD ["yarn", "start"]
