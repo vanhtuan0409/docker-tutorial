@@ -45,6 +45,7 @@ Endpoints:
 - You need to upgrade your environment
   - From Python 2 to Python 3
 
+After a while, your environment will look like this
 ![](resources/env_prob.png)
 
 #### The Problem
@@ -52,3 +53,39 @@ Endpoints:
 - Time consumming when setup a new stack
 - Environment conflict between stacks (not isolated)
 - Missing dependencies
+- Hard to upgrade (code + environment)
+- Hard to replicate to another machine
+- ...
+
+#### Introduction to Docker
+
+- Docker was introduced in 2013
+- For easier to understand, Docker is similar to VM but dont consume as much computing resources
+- Docker allow application run in an isolated environment
+- Docker provide an easy way to install and share your application
+
+#### Basic concept of Docker
+
+- Docker image: a snapshot of current machine (As concept it is similar to a GHOST Image / Backup Image of computer)
+- Docker container: a running Image
+- Docker registry: a centralize repository of Docker Image
+
+![](resources/basic_concept.png)
+
+#### Fundamental of Docker environment
+
+- Two entity:
+  - Docker environment: environment of Docker application
+  - Host OS environment: environment of the physical server running Docker
+- Docker application run in a ISOLATED ENVIRONMENT with server host
+  - Isolated network
+  - Isolated file system
+- Docker environment is **DESTROYED** whenever application stopped
+
+![](resources/isolated_env.png)
+
+- Docker provide 2 method for communicate between Docker environment and host OS
+  - Port Mapping: For network commnication
+  - Volume Mount: For file system communication
+
+![](resources/env_communication.png)
