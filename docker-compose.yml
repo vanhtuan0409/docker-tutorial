@@ -1,0 +1,45 @@
+version: "3"
+services:
+  db:
+    image: mongo
+    container_name: "mongo"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    volumes:
+      - mongo_data:/data/db
+  
+  api:
+    image: vanhtuan/dockertutorial
+    container_name: "dockertutorial"
+    build: .
+    depends_on:
+      - db
+    deploy:
+      replicas: 5
+      placement:
+        constraints:
+          - node.role == worker
+    environment:
+      - MONGODB_HOST=db
+      - MONGODB_PORT=27017
+      - MONGODB_DB=dockertutorial
+    ports:
+      - 8000:8000
+    command: sh -c "sleep 2; yarn start"
+  
+  visualizer:
+    image: dockersamples/visualizer:stable
+    container_name: "visualizer"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    ports:
+      - "8080:8080"
+
+volumes:
+  mongo_data:

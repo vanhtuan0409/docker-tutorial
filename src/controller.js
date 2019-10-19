@@ -1,8 +1,9 @@
 const db = require("./db");
+const os = require("os");
 
 module.exports = {
   index(req, res) {
-    res.send("Hello world!!!");
+    res.send(`Hello world from ${os.hostname()}!!!`);
   },
 
   list(req, res) {
