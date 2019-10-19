@@ -74,7 +74,38 @@ After a while, your environment will look like this
 
 ##### Practice
 
-Running a Docker container
+- Running a Docker container
+```sh
+# Run a container
+docker run -d --name mongo mongo
+
+# List running containers
+docker ps
+
+# View logs of a container
+docker logs mongo
+
+# Stop a container
+docker stop mongo
+
+# Remove a container
+docker rm mongo
+```
+
+##### Docker-compose
+
+- A Configuration-way for running docker containers
+
+```yaml
+version: "3.7"
+
+services:
+  db:
+    image: mongo
+    container_name: "mongo"
+```
+
+- Running: `docker-compose up -d`
 
 #### Fundamental of Docker environment
 
@@ -93,3 +124,8 @@ Running a Docker container
   - Volume Mount: For file system communication
 
 ![](resources/env_communication.png)
+
+##### Practice
+```sh
+docker run -d --name mongo -p 27017:27017 -v ./data/mongo:/data/db mongo
+```
