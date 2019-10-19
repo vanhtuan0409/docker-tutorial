@@ -72,6 +72,10 @@ After a while, your environment will look like this
 
 ![](resources/basic_concept.png)
 
+##### Practice
+
+Running a Docker container
+
 #### Fundamental of Docker environment
 
 - Two entity:
